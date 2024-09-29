@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Hapmshir Page</title>
+    <title>New Hampshir Page</title>
     <style>
         body {
             background-color: #00ff00; /* Bright green background */
@@ -48,12 +48,24 @@
     <h1>Welcome to New Hampshir</h1>
     <div class="retro-box">
         <h2>Liv Fre or Dye</h2>
-        <img src="hellothere.gif" alt="skelten" style="width:256px;height:256px;">
+        <img src="hellothere.gif" alt="skeleton" style="width:256px;height:256px;">
         <p>enjoy.</p>
         <p><a href="https://google.com">Link that does nothing yet...</a></p>
+        <p id="visit-counter">Visits: 0</p> <!-- Visit counter -->
     </div>
     <footer>
         <p>© 2024 TheCanMan | All Rights Reserved</p>
     </footer>
+
+    <script>
+        const countApiUrl = 'https://api.countapi.xyz/update/newhampshir.com/visits?amount=1';
+
+        fetch(countApiUrl)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('visit-counter').innerText = `Visits: ${data.value}`;
+            })
+            .catch(err => console.error('Error fetching visit count:', err));
+    </script>
 </body>
 </html>
